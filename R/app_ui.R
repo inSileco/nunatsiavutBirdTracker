@@ -9,6 +9,10 @@
 app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources()
+    tags$script(
+        "data-goatcounter" = "https://nunatsiavutbirdtracker.goatcounter.com/count",
+        "async src" = "//gc.zgo.at/count.js"
+    )
     bslib::page_sidebar(
         title = "Nunatsiavut bird trackers",
         class = "p-0",
