@@ -12,10 +12,10 @@
 #' @noRd
 #'
 mod_timeout_client_ui <- function(id) {
-    ns <- NS(id)
-    timeoutSeconds <- get_golem_config("timeout_session_time")
+  ns <- NS(id)
+  timeoutSeconds <- get_golem_config("timeout_session_time")
 
-    inactivity <- sprintf("
+  inactivity <- sprintf("
     function idleTimer() {
       let t = setTimeout(logout, %s);
 
@@ -37,65 +37,65 @@ mod_timeout_client_ui <- function(id) {
     idleTimer();
   ", timeoutSeconds * 1000, ns("timeOut"), timeoutSeconds * 1000)
 
-    tagList(
-        tags$script(inactivity)
-    )
+  tagList(
+    tags$script(inactivity)
+  )
 }
 
 #' timeout_client Server Functions
 #'
 #' @noRd
 mod_timeout_client_server <- function(id, r) {
-    moduleServer(id, function(input, output, session) {
-        ns <- session$ns
+  moduleServer(id, function(input, output, session) {
+    ns <- session$ns
 
-        timer <- reactiveValues(
-            eventTime = NULL,
-            left = NULL,
-            on = FALSE
-        )
+    timer <- reactiveValues(
+      eventTime = NULL,
+      left = NULL,
+      on = FALSE
+    )
 
-        observe({
-            if (timer$on) {
-                invalidateLater(1000, session)
-                timer$left <- round(difftime(timer$eventTime, Sys.time(), units = "secs"))
-                if (timer$left < 0) {
-                    timer$on <- FALSE
-                    cli::cli_alert_info("Timeout - Closing user session {session$token}")
-                    removeModal()
-                    showModal(modalDialog(
-                        title = "Session closed",
-                        p("Session closed after", get_golem_config("timeout_closing_time"), "seconds of inactivity"),
-                        footer = NULL
-                    ))
-                    session$close()
-                }
-            }
-        })
-
-        output$eventTimeRemaining <- renderText({
-            timer$left
-        })
-
-        observeEvent(input$timeOut, {
-            cli::cli_alert_info("Timeout - showing modal")
-
-            timer$eventTime <- Sys.time() + get_golem_config("timeout_closing_time")
-            timer$on <- TRUE
-
-            showModal(modalDialog(
-                title = "Are you still there?",
-                p("Session closing in", textOutput(ns("eventTimeRemaining"), inline = TRUE), "seconds due to inactivity"),
-                footer = actionButton(ns("stillActive"), "Yes")
-            ))
-        })
-
-        observeEvent(input$stillActive, {
-            removeModal()
-            timer$on <- FALSE
-            if (!r$disclaimer_agreed) {
-                r$show_dialog <- TRUE
-            }
-        })
+    observe({
+      if (timer$on) {
+        invalidateLater(1000, session)
+        timer$left <- round(difftime(timer$eventTime, Sys.time(), units = "secs"))
+        if (timer$left < 0) {
+          timer$on <- FALSE
+          cli::cli_alert_info("Timeout - Closing user session {session$token}")
+          removeModal()
+          showModal(modalDialog(
+            title = "Session closed",
+            p("Session closed after", get_golem_config("timeout_closing_time"), "seconds of inactivity"),
+            footer = NULL
+          ))
+          session$close()
+        }
+      }
     })
+
+    output$eventTimeRemaining <- renderText({
+      timer$left
+    })
+
+    observeEvent(input$timeOut, {
+      cli::cli_alert_info("Timeout - showing modal")
+
+      timer$eventTime <- Sys.time() + get_golem_config("timeout_closing_time")
+      timer$on <- TRUE
+
+      showModal(modalDialog(
+        title = "Are you still there?",
+        p("Session closing in", textOutput(ns("eventTimeRemaining"), inline = TRUE), "seconds due to inactivity"),
+        footer = actionButton(ns("stillActive"), "Yes")
+      ))
+    })
+
+    observeEvent(input$stillActive, {
+      removeModal()
+      timer$on <- FALSE
+      if (!r$disclaimer_agreed) {
+        r$show_dialog <- TRUE
+      }
+    })
+  })
 }
