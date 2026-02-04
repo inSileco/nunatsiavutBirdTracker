@@ -4,7 +4,7 @@
 
 fct_start <- function() {
   # create /docs for reports output
-  dir.create(file.path(app_sys("app", "www"), "docs"))
+  dir.create(file.path(app_sys("app", "www"), "docs"), showWarnings = FALSE)
 
   # create disclaimer.html
   cli::cli_alert_info("Application startup - convert md documents")
