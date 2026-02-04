@@ -18,7 +18,7 @@ sync_gs_parquet(
 \item{...}{Additional arguments passed to the `get_mb_tracks` function.}
 }
 \description{
-This function writes Parquet files containing animal tracks into a specified Google Cloud Storage (GCS) bucket. 
+This function writes Parquet files containing animal tracks into a specified Google Cloud Storage (GCS) bucket.
 It partitions the data by `vernacular` and `tag_id` and handles authentication using a JSON credentials file.
 }
 \details{

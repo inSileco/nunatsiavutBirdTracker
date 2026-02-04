@@ -8,16 +8,16 @@
 #' @param auth_gcs_file_path Character. The path to the GCS JSON credentials file. Default is `"./google_api_key.json"`.
 #'
 #' @export
-sync_gs_metadata <- function(bucket=NULL, auth_gcs_file_path="./google_api_key.json"){
-    birds_md <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1XiksWymZ8Mam9moxwTxwkK5UzuQ5KDzZRahdr72V-oM/edit?usp=sharing") |>
-        janitor::clean_names()
+sync_gs_metadata <- function(bucket = NULL, auth_gcs_file_path = "./google_api_key.json") {
+  birds_md <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1XiksWymZ8Mam9moxwTxwkK5UzuQ5KDzZRahdr72V-oM/edit?usp=sharing") |>
+    janitor::clean_names()
 
-    tmp_rds <- tempfile(fileext = ".rds")
-    saveRDS(birds_md, tmp_rds)
+  tmp_rds <- tempfile(fileext = ".rds")
+  saveRDS(birds_md, tmp_rds)
 
-    googleCloudStorageR::gcs_auth(auth_gcs_file_path)
+  googleCloudStorageR::gcs_auth(auth_gcs_file_path)
 
-    googleCloudStorageR::gcs_upload(tmp_rds, name = "bird-metadata.rds", bucket = bucket, predefinedAcl = "bucketLevel")
-    
+  googleCloudStorageR::gcs_upload(tmp_rds, name = "bird-metadata.rds", bucket = bucket, predefinedAcl = "bucketLevel")
+
   on.exit(file.remove(tmp_rds))
 }

@@ -47,7 +47,6 @@ RUN Rscript -e 'remotes::install_version("move", version = "4.2.4", repos = "htt
 RUN Rscript -e 'remotes::install_version("purrr", version = "1.0.2", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
 RUN Rscript -e 'remotes::install_version("pkgload", version = "1.3.3", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
 RUN Rscript -e 'remotes::install_version("rmarkdown", version = "2.25", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
-RUN Rscript -e 'remotes::install_version("slickR", version = "0.6.0", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
 RUN Rscript -e 'remotes::install_version("sf", version = "1.0.14", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
 RUN Rscript -e 'remotes::install_version("stringr", version = "1.5.1", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
 RUN Rscript -e 'remotes::install_version("shiny", version = "1.7.4", repos = "https://packagemanager.posit.co/cran/__linux__/jammy/latest")' \
