@@ -23,10 +23,10 @@ mod_map_server <- function(id, r) {
     labelText <- reactive({
       paste0(
         "<b>GPS deployment location</b><br/>",
-        "Date: ", r$selectedBirdDescription$tag_deployment_date
+        "Date: ",
+        r$selectedBirdDescription$tag_deployment_date
       )
     })
-
 
     get_data <- reactive({
       fetch_spatial_ind(

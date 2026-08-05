@@ -7,7 +7,9 @@ mod_dialog_disclaimers_server <- function(id, r) {
       easyClose = FALSE,
       size = "xl",
       footer = tagList(
-        checkboxInput(ns("agreed"), disc_frontm$agree,
+        checkboxInput(
+          ns("agreed"),
+          disc_frontm$agree,
           value = FALSE,
           width = "70%"
         ),

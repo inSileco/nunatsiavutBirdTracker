@@ -17,7 +17,11 @@
 #' 5. Cleans up temporary files on exit.
 #'
 #' @export
-sync_gs_parquet <- function(bucket = NULL, auth_gcs_file_path = "./google_api_key.json", ...) {
+sync_gs_parquet <- function(
+  bucket = NULL,
+  auth_gcs_file_path = "./google_api_key.json",
+  ...
+) {
   temp_parquet <- tempfile()
 
   arrow::write_dataset(
@@ -33,9 +37,15 @@ sync_gs_parquet <- function(bucket = NULL, auth_gcs_file_path = "./google_api_ke
 
   parquet_files <- list.files(temp_parquet, recursive = TRUE)
 
-  parquet_files |> purrr::walk(\(f) {
-    googleCloudStorageR::gcs_upload(file.path(temp_parquet, f), name = f, bucket = bucket, predefinedAcl = "bucketLevel")
-  })
+  parquet_files |>
+    purrr::walk(\(f) {
+      googleCloudStorageR::gcs_upload(
+        file.path(temp_parquet, f),
+        name = f,
+        bucket = bucket,
+        predefinedAcl = "bucketLevel"
+      )
+    })
 
   on.exit(file.remove(temp_parquet))
 }

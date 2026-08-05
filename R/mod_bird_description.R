@@ -26,12 +26,18 @@ mod_bird_description_server <- function(id, r) {
 
       # Set photos
       bucketName <- "assets-photos"
-      gcs_photos <- googleCloudStorageR::gcs_list_objects(bucket = bucketName, prefix = r$tag_id)
+      gcs_photos <- googleCloudStorageR::gcs_list_objects(
+        bucket = bucketName,
+        prefix = r$tag_id
+      )
 
       if (nrow(gcs_photos) > 0) {
         photos <- gcs_photos |>
           dplyr::pull(name) |>
-          googleCloudStorageR::gcs_download_url(bucket = bucketName, public = TRUE)
+          googleCloudStorageR::gcs_download_url(
+            bucket = bucketName,
+            public = TRUE
+          )
       } else if (selDesc$species == "Somateria mollissima") {
         photos <- "https://images.phylopic.org/images/6db76232-0ff7-4599-a8c8-0070fd7dd51c/vector.svg"
       } else if (stringr::str_detect(selDesc$species, "Larus")) {
@@ -44,15 +50,37 @@ mod_bird_description_server <- function(id, r) {
         bslib::card(
           bslib::card_body(
             h4(
-              ifelse(is.na(selDesc$name), "Unnamed bird", stringr::str_to_title(selDesc$name)),
+              ifelse(
+                is.na(selDesc$name),
+                "Unnamed bird",
+                stringr::str_to_title(selDesc$name)
+              ),
               br(),
-              span(class = "text-muted", style = "font-size: .7em;", selDesc$vernacular_en),
+              span(
+                class = "text-muted",
+                style = "font-size: .7em;",
+                selDesc$vernacular_en
+              ),
               br(),
-              span(class = "fst-italic", style = "font-size: .7em;", selDesc$species),
+              span(
+                class = "fst-italic",
+                style = "font-size: .7em;",
+                selDesc$species
+              ),
               br(),
-              span(class = "badge rounded-pill bg-primary fw-lighter", paste("#Tag ID - ", selDesc$tag_id), style = "font-size: .5em;")
+              span(
+                class = "badge rounded-pill bg-primary fw-lighter",
+                paste("#Tag ID - ", selDesc$tag_id),
+                style = "font-size: .5em;"
+              )
             ),
-            slickR::slickR(obj = photos, height = 300, width = "95%", padding = 10) + slickR::settings(dots = TRUE),
+            slickR::slickR(
+              obj = photos,
+              height = 300,
+              width = "95%",
+              padding = 10
+            ) +
+              slickR::settings(dots = TRUE),
             tagList(
               tags$ul(
                 class = "list-group list-group-flush",
@@ -69,7 +97,10 @@ mod_bird_description_server <- function(id, r) {
                 ),
                 tags$li(
                   class = "list-group-item",
-                  p(span("GPS deployment date", class = "fw-bold"), selDesc$tag_deployment_date)
+                  p(
+                    span("GPS deployment date", class = "fw-bold"),
+                    selDesc$tag_deployment_date
+                  )
                 ),
                 tags$li(
                   class = "list-group-item",
@@ -77,11 +108,17 @@ mod_bird_description_server <- function(id, r) {
                 ),
                 tags$li(
                   class = "list-group-item",
-                  p(span("Departure from breeding area", class = "fw-bold"), selDesc$departure_date_from_breeding_area)
+                  p(
+                    span("Departure from breeding area", class = "fw-bold"),
+                    selDesc$departure_date_from_breeding_area
+                  )
                 ),
                 tags$li(
                   class = "list-group-item",
-                  p(span("Arrival from wintering area", class = "fw-bold"), selDesc$arrival_date_to_wintering_area)
+                  p(
+                    span("Arrival from wintering area", class = "fw-bold"),
+                    selDesc$arrival_date_to_wintering_area
+                  )
                 ),
                 tags$li(
                   class = "list-group-item",

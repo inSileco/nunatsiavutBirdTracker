@@ -20,7 +20,8 @@ fct_start <- function() {
   # Load birds metadata
   cli::cli_alert_info("Application startup - Set birds metadata")
   googleCloudStorageR::gcs_auth(Sys.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
-  birds_metadata <<- googleCloudStorageR::gcs_get_object("bird-metadata.rds",
+  birds_metadata <<- googleCloudStorageR::gcs_get_object(
+    "bird-metadata.rds",
     bucket = "bird-metadata",
     parseFunction = googleCloudStorageR::gcs_parse_rds
   )

@@ -16,7 +16,11 @@ mod_selectors_ui <- function(id) {
       ),
       column(
         12,
-        selectInput(ns("vernacular"), label = "Choose the species:", choices = NULL)
+        selectInput(
+          ns("vernacular"),
+          label = "Choose the species:",
+          choices = NULL
+        )
       ),
       column(
         12,
@@ -45,9 +49,18 @@ mod_selectors_ui <- function(id) {
       )
     ),
     div(
-      class = "btn-group", role = "group",
-      actionButton(ns("prev_bird"), label = "Previous bird", class = "btn btn-primary p-1 my-1 mr-1"),
-      actionButton(ns("next_bird"), label = "Next bird", class = "btn btn-primary p-1 my-1 ml-1")
+      class = "btn-group",
+      role = "group",
+      actionButton(
+        ns("prev_bird"),
+        label = "Previous bird",
+        class = "btn btn-primary p-1 my-1 mr-1"
+      ),
+      actionButton(
+        ns("next_bird"),
+        label = "Next bird",
+        class = "btn btn-primary p-1 my-1 ml-1"
+      )
     )
   )
 }
@@ -84,7 +97,13 @@ mod_selectors_server <- function(id, r) {
       ids_name <- r$selectors |>
         dplyr::filter(vernacular == input$vernacular) |>
         dplyr::left_join(dplyr::select(birds_metadata, tag_id, name)) |>
-        dplyr::mutate(name = ifelse(is.na(name), glue::glue("Unnamed ({tag_id})"), glue::glue("{name} ({tag_id})"))) |>
+        dplyr::mutate(
+          name = ifelse(
+            is.na(name),
+            glue::glue("Unnamed ({tag_id})"),
+            glue::glue("{name} ({tag_id})")
+          )
+        ) |>
         dplyr::select(name, tag_id)
 
       r$tag_ids <- ids_name$tag_id

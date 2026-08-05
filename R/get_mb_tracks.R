@@ -17,12 +17,24 @@
 #'
 #' @export
 
-get_mb_tracks <- function(mb_user = Sys.getenv("MOVEBANK_USER"), mb_password = Sys.getenv("MOVEBANK_PW"), study_id = NULL) {
+get_mb_tracks <- function(
+  mb_user = Sys.getenv("MOVEBANK_USER"),
+  mb_password = Sys.getenv("MOVEBANK_PW"),
+  study_id = NULL
+) {
   suppressWarnings({
     suppressMessages({
-      loginStored <- move::movebankLogin(username = mb_user, password = mb_password)
+      loginStored <- move::movebankLogin(
+        username = mb_user,
+        password = mb_password
+      )
 
-      tracks <- move::getMovebankData(study = study_id, login = loginStored, removeDuplicatedTimestamps = TRUE, deploymentAsIndividuals = TRUE)@data
+      tracks <- move::getMovebankData(
+        study = study_id,
+        login = loginStored,
+        removeDuplicatedTimestamps = TRUE,
+        deploymentAsIndividuals = TRUE
+      )@data
 
       animals <- move::getMovebankAnimals(study = study_id, login = loginStored)
     })
@@ -52,7 +64,6 @@ get_mb_tracks <- function(mb_user = Sys.getenv("MOVEBANK_USER"), mb_password = S
       tag_id = as.factor(tag_id),
       datetime = as.POSIXct(datetime)
     )
-
 
   # Studies cleanup
   if (study_id == 2854587542) {
