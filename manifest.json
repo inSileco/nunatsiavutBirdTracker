@@ -11,7 +11,7 @@
   },
   "environment": {
     "r": {
-      "requires": ">= 4.1"
+      "requires": ">= 4.2"
     }
   },
   "packages": {
@@ -5593,16 +5593,16 @@
       "checksum": "f4c174d9ce768b54e1d17652c6c619be"
     },
     "app.R": {
-      "checksum": "d422a5e677643641dba3e00fc43867a5"
+      "checksum": "98c6a4bbd6e3931d90c961c8cd156fee"
     },
     "data-raw/nunatsiavut_gulls.R": {
-      "checksum": "949547b6ad6f0ad51b91e57cabb62681"
+      "checksum": "347cd4409f3d11d1dc348f2880dca943"
     },
     "data/nunatsiavut_gulls.rda": {
       "checksum": "d93c2f437dd38211e66cdc4bba2cd20e"
     },
     "DESCRIPTION": {
-      "checksum": "93bf853c9ccd9980adb554757c259520"
+      "checksum": "be7ce6d58474e730c3c96a5e20879509"
     },
     "dev/01_start.R": {
       "checksum": "c8b6291fd4a9f74bf73c1152283ab8af"
@@ -5614,7 +5614,7 @@
       "checksum": "cf8f6ce844c00b9259739677590eb89e"
     },
     "dev/run_dev.R": {
-      "checksum": "6fc8f2b096055bd97663f84a8e6ed8d7"
+      "checksum": "2626a87359bfeaa35fbdbb31367dc5dc"
     },
     "Dockerfile": {
       "checksum": "34020aa5e9107f95c0023c373d6bb75d"
@@ -5627,6 +5627,9 @@
     },
     "inst/app/www/favicon.ico": {
       "checksum": "f03184476b28d5d73e0c3c480cc5cac3"
+    },
+    "inst/app/www/static_docs/disclaimer.html": {
+      "checksum": "bd63635b9d68503d9ad1f8f90c3a3cf8"
     },
     "inst/app/www/static_docs/disclaimer.md": {
       "checksum": "178c202ee506e0952006bd74835bde87"
@@ -5689,37 +5692,37 @@
       "checksum": "2191e0f1b9fb82d13ed9d477ca746ca9"
     },
     "R/fct_start.R": {
-      "checksum": "3acdc0f6598c6df1b2df528f489b4ac5"
+      "checksum": "f30825c362e02e651b1a46d4319871f3"
     },
     "R/get_mb_tracks.R": {
-      "checksum": "1b56b661060779f2690cd381bec4bc16"
+      "checksum": "402071904b441684ccddce1820f62fe2"
     },
     "R/mod_bird_description.R": {
-      "checksum": "1cbda004fd33363a61458f6407e4cade"
+      "checksum": "74253de40183ed42db7c2870061c45ff"
     },
     "R/mod_dialog_disclaimers.R": {
-      "checksum": "fac48a1109857cf5efd78e9c3ba494ea"
+      "checksum": "4d053a1ddd8eca4ec142d45ed328cb4c"
     },
     "R/mod_map.R": {
-      "checksum": "8f66fcf9f124250c3498bf9e5bdfcd34"
+      "checksum": "6ebcb5070c9b609e7403a18f4819b1d4"
     },
     "R/mod_selectors.R": {
-      "checksum": "9f1651e7f05f544b08fea243378c910c"
+      "checksum": "5f1c0bf7d0f97e80fd5152f5919d90ae"
     },
     "R/mod_timeout_client.R": {
-      "checksum": "c65a34d20b23b725bad4608fea8f9817"
+      "checksum": "859777f33fc33a4cff82ddcb281e995c"
     },
     "R/run_app.R": {
       "checksum": "e362f07c639bdd368582c04e1184afda"
     },
     "R/sync_gs_metadata.R": {
-      "checksum": "506d3a6dc28faf051ee1ce82f19ad9ac"
+      "checksum": "ddd91f8406098e6f1f80725af2985c6c"
     },
     "R/sync_gs_parquet.R": {
-      "checksum": "38d999d6b734a82eae3f4de6d96bc267"
+      "checksum": "0341f92a68e92822806c75ce230eb286"
     },
     "R/utils_helptext.R": {
-      "checksum": "677a9e7e394d4edff4fd0c7018c543f6"
+      "checksum": "4ee1312b1c7b3b36919a35a9d58d1fd3"
     },
     "README.md": {
       "checksum": "f1774f52e2e5f22deb2fc506b1137164"
