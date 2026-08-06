@@ -1,0 +1,4 @@
+.dockerignore
+Dockerfile
+shiny-server.conf
+shiny-server.sh

@@ -1583,39 +1583,6 @@
         "RemoteSha": "0.1.4"
       }
     },
-    "geosphere": {
-      "Source": "CRAN",
-      "Repository": "https://cran.wu.ac.at",
-      "description": {
-        "Package": "geosphere",
-        "Type": "Package",
-        "Title": "Spherical Trigonometry",
-        "Version": "1.6-8",
-        "Date": "2026-04-04",
-        "LinkingTo": "Rcpp",
-        "Imports": "Rcpp",
-        "Depends": "R (>= 3.0.0), methods",
-        "Suggests": "terra, sf, sp",
-        "Authors@R": "c(\n\tperson(\"Robert J.\", \"Hijmans\", role = c(\"cre\", \"aut\"),  email = \"r.hijmans@gmail.com\"),\n\tperson(\"Charles\", \"Karney\", role = \"ctb\", comment=\"GeographicLib\"),\t\n\tperson(\"Ed\", \"Williams\", role = \"ctb\"),\n\tperson(\"Chris\", \"Vennes\", role = \"ctb\"))",
-        "Description": "Spherical trigonometry for geographic applications. That is, compute distances and related measures for angular (longitude/latitude) locations. ",
-        "BugReports": "https://github.com/rspatial/geosphere/issues/",
-        "License": "GPL (>= 3)",
-        "LazyLoad": "yes",
-        "NeedsCompilation": "yes",
-        "Packaged": "2026-04-04 20:57:44 UTC; rhijm",
-        "Author": "Robert J. Hijmans [cre, aut],\n  Charles Karney [ctb] (GeographicLib),\n  Ed Williams [ctb],\n  Chris Vennes [ctb]",
-        "Maintainer": "Robert J. Hijmans <r.hijmans@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2026-04-05 22:50:07 UTC",
-        "Built": "R 4.5.2; x86_64-pc-linux-gnu; 2026-08-06 14:46:49 UTC; unix",
-        "RemoteType": "standard",
-        "RemotePkgRef": "geosphere",
-        "RemoteRef": "geosphere",
-        "RemoteRepos": "https://cran.wu.ac.at/",
-        "RemotePkgPlatform": "source",
-        "RemoteSha": "1.6-8"
-      }
-    },
     "gert": {
       "Source": "CRAN",
       "Repository": "https://cran.wu.ac.at",
@@ -2840,43 +2807,6 @@
         "RemoteRepos": "https://cran.wu.ac.at/",
         "RemotePkgPlatform": "source",
         "RemoteSha": "0.1.2"
-      }
-    },
-    "move": {
-      "Source": "CRAN",
-      "Repository": "https://cran.wu.ac.at",
-      "description": {
-        "Package": "move",
-        "Type": "Package",
-        "Title": "Visualizing and Analyzing Animal Track Data",
-        "Version": "4.2.7",
-        "Authors@R": "c(person(\"Bart\", \"Kranstauber\", role = c(\"aut\", \"cre\"),\n                     email = \"b.kranstauber@uva.nl\"),\n              person(\"Marco\", \"Smolla\", role = \"aut\"),\n              person(family= \"Scharf\",given='Anne K', role = \"aut\")\n                     )",
-        "Description": "Contains functions to access movement data stored in 'movebank.org'\n    as well as tools to visualize and statistically analyze animal movement data,\n    among others functions to calculate dynamic Brownian Bridge Movement Models.\n    Move helps addressing movement ecology questions.",
-        "License": "GPL (>= 3)",
-        "URL": "https://bartk.gitlab.io/move/",
-        "BugReports": "https://gitlab.com/bartk/move/-/issues",
-        "LazyLoad": "yes",
-        "LazyData": "yes",
-        "LazyDataCompression": "xz",
-        "Depends": "geosphere (>= 1.4-3), methods, sp, raster (>= 3.6-14), R (>=\n3.5.0)",
-        "Suggests": "adehabitatHR, adehabitatLT, markdown, rmarkdown, circular,\nggmap, mapproj, testthat, knitr, ggplot2, leaflet, lubridate,\nctmm, amt, bcpa, EMbC, solartime",
-        "Imports": "httr, memoise, terra, xml2, Rcpp",
-        "LinkingTo": "Rcpp",
-        "RoxygenNote": "7.2.3",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2026-01-13 11:16:57 UTC; bart",
-        "Author": "Bart Kranstauber [aut, cre],\n  Marco Smolla [aut],\n  Anne K Scharf [aut]",
-        "Maintainer": "Bart Kranstauber <b.kranstauber@uva.nl>",
-        "Repository": "CRAN",
-        "Date/Publication": "2026-01-13 11:50:02 UTC",
-        "Built": "R 4.5.2; x86_64-pc-linux-gnu; 2026-08-06 14:47:25 UTC; unix",
-        "RemoteType": "standard",
-        "RemotePkgRef": "move",
-        "RemoteRef": "move",
-        "RemoteRepos": "https://cran.wu.ac.at/",
-        "RemotePkgPlatform": "source",
-        "RemoteSha": "4.2.7"
       }
     },
     "openssl": {
@@ -5294,9 +5224,6 @@
     }
   },
   "files": {
-    ".dockerignore": {
-      "checksum": "926098ec9d2e6a79571e9bb9f167c5f0"
-    },
     ".github/workflows/build-docker-container.yaml": {
       "checksum": "f273db4c702064fce648d191bf8529c2"
     },
@@ -5305,6 +5232,9 @@
     },
     ".Rbuildignore": {
       "checksum": "15945c1a4829de7cdee8ea9e8f399a48"
+    },
+    ".renvignore": {
+      "checksum": "ecee50f6d709f36cfa996165025fcff7"
     },
     ".Renviron": {
       "checksum": "39b73ea4251239caf895c80edf8c4a03"
@@ -5335,9 +5265,6 @@
     },
     "dev/run_dev.R": {
       "checksum": "2626a87359bfeaa35fbdbb31367dc5dc"
-    },
-    "Dockerfile": {
-      "checksum": "34020aa5e9107f95c0023c373d6bb75d"
     },
     "google_api_key.json": {
       "checksum": "36d7a12099e55e1349b06a08f2426fa9"
@@ -5443,12 +5370,6 @@
     },
     "README.md": {
       "checksum": "f1774f52e2e5f22deb2fc506b1137164"
-    },
-    "shiny-server.conf": {
-      "checksum": "44a21ac1175f6057bb4628ca60e26020"
-    },
-    "shiny-server.sh": {
-      "checksum": "b46d9b79563f4645bbbb0e8118dc5a07"
     },
     "tests/testthat.R": {
       "checksum": "9cd6c209ba1ab03492dd98d152641202"
