@@ -22,6 +22,7 @@ get_mb_tracks <- function(
   mb_password = Sys.getenv("MOVEBANK_PW"),
   study_id = NULL
 ) {
+  rlang::check_installed("move", "to retrieve Movebank tracks.")
   suppressWarnings({
     suppressMessages({
       loginStored <- move::movebankLogin(
