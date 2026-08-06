@@ -5581,7 +5581,7 @@
       "checksum": "f273db4c702064fce648d191bf8529c2"
     },
     ".github/workflows/R-CMD-check.yaml": {
-      "checksum": "05b11edada2793b5d78900facd431390"
+      "checksum": "24edbd0f14ab9928562351527fc7d90f"
     },
     ".Rbuildignore": {
       "checksum": "15945c1a4829de7cdee8ea9e8f399a48"
@@ -5602,7 +5602,7 @@
       "checksum": "d93c2f437dd38211e66cdc4bba2cd20e"
     },
     "DESCRIPTION": {
-      "checksum": "be7ce6d58474e730c3c96a5e20879509"
+      "checksum": "b9b696169727d9ef5f29800b257a249f"
     },
     "dev/01_start.R": {
       "checksum": "c8b6291fd4a9f74bf73c1152283ab8af"
@@ -5627,9 +5627,6 @@
     },
     "inst/app/www/favicon.ico": {
       "checksum": "f03184476b28d5d73e0c3c480cc5cac3"
-    },
-    "inst/app/www/static_docs/disclaimer.html": {
-      "checksum": "bd63635b9d68503d9ad1f8f90c3a3cf8"
     },
     "inst/app/www/static_docs/disclaimer.md": {
       "checksum": "178c202ee506e0952006bd74835bde87"
